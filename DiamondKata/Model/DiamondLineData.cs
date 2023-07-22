@@ -9,8 +9,8 @@
         /// <param name="outerSpaces">The number of outer spaces.</param>
         public DiamondLineData(char character, int outerSpaces)
         {
-            this.Character = character;
-            this.OuterSpaces = outerSpaces;
+            Character = character;
+            OuterSpaces = outerSpaces;
         }
 
         /// <summary>

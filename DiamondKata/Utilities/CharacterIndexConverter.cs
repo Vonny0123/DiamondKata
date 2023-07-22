@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DiamondKata.Utilities
+﻿namespace DiamondKata.Utilities
 {
     public class CharacterIndexConverter : IConverter<char, int>
     {
