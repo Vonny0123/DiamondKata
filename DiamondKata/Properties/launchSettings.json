@@ -1,8 +1,7 @@
 {
   "profiles": {
     "DiamondKata": {
-      "commandName": "Project",
-      "commandLineArgs": "abc"
+      "commandName": "Project"
     }
   }
 }
