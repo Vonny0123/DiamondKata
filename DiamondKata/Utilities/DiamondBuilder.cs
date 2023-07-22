@@ -26,16 +26,17 @@ namespace DiamondKata.Utilities
         public string Build(char input)
         {
             var characterIndex = characterIndexConverter.Convert(input);
-            var diamondWidth = 2 * characterIndex + 1;
 
             var lines = Enumerable.Range(0, characterIndex + 1)
                 .Select(x => new DiamondLineData(characterIndexConverter.Convert(x), characterIndex - x))
-                .Select(diamondLineBuilder.Build);
+                .Select(diamondLineBuilder.Build)
+                .ToList();
 
             lines = lines
                 .Concat(lines
                     .SkipLast(1)
-                    .Reverse());
+                    .Reverse())
+                .ToList();
 
             return string.Join(Environment.NewLine, lines);
         }
