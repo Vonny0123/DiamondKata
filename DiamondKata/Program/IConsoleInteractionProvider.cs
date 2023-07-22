@@ -6,10 +6,10 @@
     public interface IConsoleInteractionProvider
     {
         /// <summary>
-        /// Gets the first command line argument provided by the user.
+        /// Gets the first command line argument provided by the user (if it exists).
         /// </summary>
         /// <returns>The first command line argument.</returns>
-        public string GetFirstCommandLineArgument();
+        public string? GetFirstCommandLineArgument();
 
         /// <summary>
         /// Reads and returns the character associated with the key entered by the user.

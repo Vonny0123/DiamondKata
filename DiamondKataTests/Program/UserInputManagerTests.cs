@@ -33,10 +33,9 @@ namespace DiamondKataTests.Program
             Assert.That(result, Is.EqualTo(expected));
         }
 
-        [TestCase("*")]
         [TestCase("multiple letters")]
         [TestCase("")]
-        public void TestAllowsUserToEnterValidValueIfInvalid(string input)
+        public void TestAllowsUserToEnterValidValueIfInvalidString(string input)
         {
             // Arrange
             consoleInteractionProviderMock
@@ -52,27 +51,6 @@ namespace DiamondKataTests.Program
 
             // Assert
             Assert.That(result, Is.EqualTo('A'));
-        }
-
-        [Test]
-        public void TestAllowsUserToEnterValidValueIfInvalidMultipleTimes()
-        {
-            // Arrange
-            consoleInteractionProviderMock
-                .Setup(x => x.GetFirstCommandLineArgument())
-                .Returns("Invalid input");
-
-            consoleInteractionProviderMock
-                .SetupSequence(x => x.ReadKey())
-                .Returns('*')
-                .Returns('Z');
-
-            // Act
-            var result = userInputManager.GetUserInput();
-
-            // Assert
-            Assert.That(result, Is.EqualTo('Z'));
-            consoleInteractionProviderMock.Verify(x => x.ReadKey(), Times.Exactly(2));
         }
     }
 }

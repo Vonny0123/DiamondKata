@@ -19,7 +19,16 @@
         /// <inheritdoc/>
         public char GetUserInput()
         {
-            throw new NotImplementedException();
+            var input = consoleInteractionProvider.GetFirstCommandLineArgument();
+
+            char inputChar;
+            if(!char.TryParse(input, out inputChar))
+            {
+                consoleInteractionProvider.WriteLine("Provide a single upper-case character:");
+                inputChar = consoleInteractionProvider.ReadKey();
+            }
+
+            return inputChar;
         }
     }
 }
