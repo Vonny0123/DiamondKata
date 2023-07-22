@@ -11,7 +11,7 @@ namespace DiamondKataTests.Utilities
         [SetUp]
         public void SetUp()
         {
-            diamondLineBuilder = new DiamondLineBuilder();
+            diamondLineBuilder = new DiamondLineBuilder(new CharacterIndexConverter());
         }
 
         [TestCase(0, "A")]
@@ -30,7 +30,7 @@ namespace DiamondKataTests.Utilities
         }
 
         [TestCase('B', 3, "   B B   ")]
-        [TestCase('C', 1, " C C ")]
+        [TestCase('C', 1, " C   C ")]
         [TestCase('Z', 0, "Z                                                 Z")]
         public void TestDiamondLineBuilderConstructsInternalLinesCorrectly(char character,  int outerSpaces, string expected)
         {
