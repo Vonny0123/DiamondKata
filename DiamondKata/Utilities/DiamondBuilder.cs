@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace DiamondKata.Utilities
 {
+    /// <summary>
+    /// A class for building Diamond ASCII art based on a given character
+    /// </summary>
     public class DiamondBuilder : IAsciiArtBuilder<char>
     {
         private readonly IAsciiArtBuilder<DiamondLineData> diamondLineBuilder;
@@ -20,9 +23,22 @@ namespace DiamondKata.Utilities
             this.characterIndexConverter = characterIndexConverter;
         }
 
+        /// <inheritdoc/>
         public string Build(char input)
         {
-            throw new NotImplementedException();
+            var characterIndex = characterIndexConverter.Convert(input);
+            var diamondWidth = 2 * characterIndex + 1;
+
+            var lines = Enumerable.Range(0, characterIndex + 1)
+                .Select(x => new DiamondLineData(characterIndexConverter.Convert(x), characterIndex - x))
+                .Select(diamondLineBuilder.Build);
+
+            lines = lines
+                .Concat(lines
+                    .SkipLast(1)
+                    .Reverse());
+
+            return string.Join(Environment.NewLine, lines);
         }
     }
 }
