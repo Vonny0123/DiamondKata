@@ -1,5 +1,9 @@
 ﻿namespace DiamondKata.Utilities
 {
+    /// <summary>
+    /// An interface to be implemented by classes which construct string ASCII art.
+    /// </summary>
+    /// <typeparam name="T">The type used to construct the art.</typeparam>
     public interface IAsciiArtBuilder<T>
     {
         /// <summary>

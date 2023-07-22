@@ -1,5 +1,10 @@
 ﻿namespace DiamondKata.Utilities
 {
+    /// <summary>
+    /// An interface to be implemented by classes which convert bijectively between two types.
+    /// </summary>
+    /// <typeparam name="T">The first type which can be converted into the second type.</typeparam>
+    /// <typeparam name="U">The second type which can be converted into the first type.</typeparam>
     public interface IConverter<T, U>
     {
         /// <summary>

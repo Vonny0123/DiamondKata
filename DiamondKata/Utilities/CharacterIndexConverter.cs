@@ -1,5 +1,9 @@
 ﻿namespace DiamondKata.Utilities
 {
+    /// <summary>
+    /// A class for converting bijectively between upper-case alphabet characters
+    /// and their zero-based index in the alphabet.
+    /// </summary>
     public class CharacterIndexConverter : IConverter<char, int>
     {
         private const int IndexOffset = 65;

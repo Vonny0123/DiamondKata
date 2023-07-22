@@ -1,5 +1,8 @@
 ﻿namespace DiamondKata.Model
 {
+    /// <summary>
+    /// A Model class containing the data required to construct a line of diamond ASCII art. 
+    /// </summary>
     public class DiamondLineData
     {
         /// <summary>
