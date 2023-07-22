@@ -10,12 +10,12 @@ namespace DiamondKataTests.Utilities
         [SetUp]
         public void SetUp()
         {
-
+            this.characterIndexConverter = new CharacterIndexConverter();
         }
 
         [TestCase('A', 0)]
         [TestCase('B', 1)]
-        [TestCase('Z', 26)]
+        [TestCase('Z', 25)]
         public void TestCharacterToIndexConversionForValidInputs(char character, int expected)
         {
             // Arrange / Act
@@ -40,7 +40,7 @@ namespace DiamondKataTests.Utilities
 
         [TestCase(0, 'A')]
         [TestCase(1, 'B')]
-        [TestCase(26, 'Z')]
+        [TestCase(25, 'Z')]
         public void TestIndexToCharacterConversionForValidInputs(int index, char expected)
         {
             // Arrange / Act
@@ -52,7 +52,7 @@ namespace DiamondKataTests.Utilities
 
         [TestCase(-1)]
         [TestCase(int.MinValue)]
-        [TestCase(27)]
+        [TestCase(26)]
         [TestCase(int.MaxValue)]
         public void TestIndexToCharacterConversionForInvalidInputs(int index)
         {
